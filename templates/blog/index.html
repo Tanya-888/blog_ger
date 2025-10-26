@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Мой блог {% endblock %}
+
+
+{% block main %} 
+    {% if not post_ids %}
+        <h2>Постов нет,  <a href="/blog/add_post" style="color: black;">добавить?</a></h2>
+    {% endif %}
+    {% for i in post_ids %}
+        <div class="post-preview">
+            <a href="/blog/post/{{ i.id }}"> {{ i.title }} </a>
+        </div>
+    {% endfor %}
+    
+    {% if page != 1 or has_next %}
+        <div class="pagination">
+            {% if page != 1 %}
+                <a href="/?page={{ page - 1 }}">Назад</a>
+            {% endif %}
+            {% if has_next %}
+                <a href="/?page={{ page + 1 }}">Вперёд</a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
