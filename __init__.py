@@ -1,6 +1,6 @@
 from flask import Flask
-from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -13,9 +13,6 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # импорт маршрутов и моделей
     from . import models
-    from . import main
-    app.register_blueprint(main.bp)
 
     return app
