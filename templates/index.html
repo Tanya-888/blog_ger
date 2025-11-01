@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Все посты</title>
+</head>
+<body>
+    <h1>Список постов</h1>
+    <a href="{{ url_for('main.create_post') }}">Создать новую статью</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{{ url_for('main.post_detail', post_id=post.id) }}">{{ post.title }}</a>
+                <form action="{{ url_for('main.delete_post', post_id=post.id) }}" method="post" style="display:inline;">
+                    <button type="submit">Удалить</button>
+                </form>
+                <a href="{{ url_for('main.edit_post', post_id=post.id) }}">Редактировать</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
