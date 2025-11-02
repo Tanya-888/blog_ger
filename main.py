@@ -7,16 +7,13 @@ from controller.user import UserController
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-# Создаем Flask приложение
+
 app = Flask(__name__)
 
-# Настройка базы данных
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://user:password@localhost/dbname'
 
-# Инициализация SQLAlchemy
 db = SQLAlchemy(app)
 
-# Инициализация миграций
 migrate = Migrate(app, db)
 
 @app.errorhandler(exceptions.HTTPException)
