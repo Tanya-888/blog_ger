@@ -36,7 +36,7 @@ def add_request_id():
 def health_check():
     return jsonify({"status": "OK"}), 200
 
-# Регистрация блюпринтов
+
 app.register_blueprint(base_bp)
 app.register_blueprint(blog_bp)
 app.register_blueprint(user_bp)
