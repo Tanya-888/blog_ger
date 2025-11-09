@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Регистрация {% endblock %}
+
+
+{% block main %} 
+    <form action="/user/register" method="post">
+        <span class="form-header">Регистрация</span>
+        <input type="text" name="username" placeholder="Имя пользователя" value="{{ old_username }}" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <input type="password" name="repeat_password" placeholder="Пароль" required>
+        <span style="color: red;">{{ form_error }}</span>
+        <button type="submit">Зарегистрироваться</button>
+        <input type="reset" value="Очистить">
+    </form>
+{% endblock %}

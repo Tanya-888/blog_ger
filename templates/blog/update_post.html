@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Обновить пост {% endblock %}
+
+
+{% block main %} 
+    <form action="/blog/update_post/{{ post.id }}" method="post">
+        <span class="form-header">Обновить пост {{ post.id }} </span>
+        <input type="text" name="title" placeholder="Заголовок поста" value="{{ post.title }}" required>
+        <textarea name="content" placeholder="Содержание поста" required>{{ post.content }}</textarea>
+        <button type="submit">Добавить пост</button>
+        <input type="reset" value="Очистить">
+    </form>
+{% endblock %}
