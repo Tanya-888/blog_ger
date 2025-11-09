@@ -27,8 +27,7 @@ class UserController:
     
     @staticmethod
     def login(username, password):
-        
-    with Session as session:
+        with Session as session:
             existing_user = session.query(User).filter_by(name=username).first()
             if not existing_user:
                 raise ValueError("Invalid username or password")
