@@ -3,7 +3,6 @@ from controller.user import UserController as controller
 
 user_bp = Blueprint('user', __name__, template_folder='../templates/user', url_prefix='/user')
 
-
 @user_bp.route("/login", methods=['GET', 'POST'])
 def login():
     if request.request_user is not None:
@@ -60,7 +59,6 @@ def register():
         'register.html',
     )
 
-
 @user_bp.route("/logout", methods=['GET'])
 def logout():
     resp = make_response(redirect("/"))
@@ -74,8 +72,6 @@ def get_users():
     if request.request_user is None:
         return "Unauthorized", 401
 
-
     users = controller.get_users()
-    
 
     return render_template('user_list.html', users=users, username=request.request_user)
